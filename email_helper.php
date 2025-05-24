@@ -15,7 +15,7 @@ function send_email(
     string $your_email = "bookspizza31@gmail.com",
     string $your_password = "kekr gvgh ekfk kjkw",
     string $from_adress = "bookspizza31@gmail.com",
-    string $from_name = "Remili"
+    string $from_name = "Your web"
 ) {
     //Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);

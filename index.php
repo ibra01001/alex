@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         unset($_POST["name"], $_POST["email"], $_POST["phone"], $_POST["message"]);
         $_SESSION["is_form_active"] = false;
-        header("Location: index.php");
+        header("Location: thanks.php");
 
 
 
@@ -101,47 +101,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ALEXANDER</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.2">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
 
-    <h1 class="title">
-        <span class="letter">W</span>
-        <span class="letter">E</span>
-        <span class="letter">L</span>
-        <span class="letter">C</span>
-        <span class="letter">O</span>
-        <span class="letter">M</span>
-        <span class="letter">E</span>
-    </h1>
+
 
     <div class="box">
         <img class="simon" src="./alexanderIMAGES/simon.webp" alt="">
+            <h1 class="title">
+        <span class="letter">I</span>
+        <span class="letter">B</span>
+        <span class="letter">R</span>
+        <span class="letter">A</span>
+        <span class="letter">H</span>
+        <span class="letter">I</span>
+        <span class="letter">M</span>
+        <p class="just">Just a web developer</p>
+    </h1>
     </div>
 
-    <button class="title2" id="aboutme" onclick="showtheAboutMe()">ABOUT ME</button>
-    <button class="title3" id="proj" onclick="showthePROJECTS()">SEE MORE</button>
+    <button class="title2" id="aboutme" onclick="showtheAboutMe()">About Me</button>
+   
 
-    <div class="leftside" id="temp">
-        <ul id="PROJ"></ul>
-    </div>
+
 
     <div class="rightside" id="ABOUTME"></div>
 
     <div class="soundboard">
         <i class="bi bi-volume-mute-fill"></i>
         <audio id="audio" src="./ALEXANDERvc/اية الكرسي.mp3" preload="auto"></audio>
-        <div id="controller" class="square draggable" ondrag="changeVolume()"></div>
+        <div id="controller" class="square" ondrag="changeVolume()"></div>
         <i class="bi bi-volume-up-fill"></i>
     </div>
 
     <div class="scroll">
         <div id="scrolldown" class="observer-target"></div>
         <hr>
-        <h1>Contact me</h1>
-        <div class="FORM" style="display: <?= !isset($_SESSION['is_form_active']) ? 'block' : 'none' ?>">
+     
+       
+        <div class="FORM">
+             <h1 id="prrr">Contact me</h1>
             <?= $note; ?>
             <div class="form-container">
 
@@ -150,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" placeholder="name" required
                        
-                            <?= !isset($_SESSION["is_form_active"]) ? "" : "disabled"; ?>
+                            
                             value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>">
                         <span></span>
                     </div>
@@ -158,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" placeholder="email" required
-                        <?= !isset($_SESSION["is_form_active"]) ? "" : "disabled"; ?>
+                        
                             value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
                         <span></span>
                     </div>
@@ -166,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" placeholder="phone number"
-                        <?= !isset($_SESSION["is_form_active"]) ? "" : "disabled"; ?>
+                        
                             value="<?php echo isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : ''; ?>">
                         <span><?= $feedback ?? "" ?></span>
                     </div>
@@ -174,25 +176,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="5"
-                            required <?= !isset($_SESSION["is_form_active"]) ? "" : "disabled"; ?>><?php echo isset($_POST['message']) ? htmlspecialchars($_POST['message']) : ''; ?></textarea>
+                            required ><?php echo isset($_POST['message']) ? htmlspecialchars($_POST['message']) : ''; ?></textarea>
                     </div>
 
                     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?? ''; ?>">
-                    <button id="submit" type="submit" name="submit" <?= !isset($_SESSION["is_form_active"]) ? "" : "disabled"; ?> >Send Message</button>
+                    <button id="submit" type="submit" name="submit"  >Send Message</button>
                 </form>
             </div>
         </div>
         </section>
 
-        <footer class="footer" style="display:none">
+        <footer class="footer">
             <ul class="contact">
-                <li class="ibraCONTACT"><a id="github" href=""><i class="bi bi-github"></i></a></li>
-                <li class="ibraCONTACT"><a id="instagram" href=""><i class="bi bi-instagram"></i></a></li>
+                <li class="ibraCONTACT"><a id="github" href="https://github.com/ibra01001"><i class="bi bi-github"></i></a></li>
+                <li class="ibraCONTACT"><a id="instagram" href="https://www.instagram.com/portal_eyes/"><i class="bi bi-instagram"></i></a></li>
                 <li class="ibraCONTACT"><a id="discord" href=""><i class="bi bi-discord"></i></a></li>
-                <li class="ibraCONTACT"><a id="facebook" href=""><i class="bi bi-facebook"></i></a></li>
-                <li class="ibraCONTACT"><a id="email" type="email">mohamedremili5000@gmail.com</a></li>
+                <li class="ibraCONTACT"><a id="facebook" href="https://web.facebook.com/tf.ue.355/"><i class="bi bi-facebook"></i></a></li>
+                <li class="ibraCONTACT"><a id="email" href="mailto:mohamedremili5000@gmail.com">mohamedremili5000@gmail.com</a></li>
             </ul>
-            <p>Made by mohamed remili in &caps; in DZ</p>
+            <p id="made">Made by 👀 mohamed remili in DZ</p>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>

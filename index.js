@@ -1,9 +1,39 @@
 
 anime({
     targets: '.box',
-    translateX: 0,
+    translateX: [0],
+    width:[250,700],
+   
     rotate: '0turn',
-    scale: [0.5, 1, 3, 1.5, 3],
+    scale: [1],
+    opacity: [1],
+    duration: 2000,
+    delay: 0,
+    endDelay: 300,
+    loop: 0,
+    direction: 'alternate',
+    easing: 'easeInOutExpo',
+
+});
+anime({
+    targets: '.just',
+    translateX: [100,-5],
+    rotate: '0turn',
+    scale: [1],
+    opacity: [0, 1],
+    duration: 5000,
+    delay: 10,
+    endDelay: 300,
+    loop: 0,
+    direction: 'alternate',
+    easing: 'easeInOutExpo',
+
+});
+anime({
+    targets: '.simon',
+    translateX: [0,0],
+    rotate: '1turn',
+    scale: [1.2],
     opacity: [0, 1],
     duration: 3000,
     delay: 0,
@@ -14,41 +44,10 @@ anime({
 
 });
 anime({
-    targets: '.simon',
-    translateX: [0],
-    rotate: '1turn',
-    scale: [0.5, 1],
-    opacity: [0, 1],
-    duration: 1000,
-    delay: 0,
-    endDelay: 300,
-    loop: 3,
-    direction: 'alternate',
-    easing: 'easeInOutExpo',
-
-});
-anime({
-    targets: '.letter',
-    opacity: [0, 1],
-    keyframes: [
-        { translateY: '-100%', easing: 'easeOutExpo', duration: 600 },
-        { translateY: 10, easing: 'easeOutBounce', duration: 800, delay: 200 }
-    ],
-    rotate: {
-        value: '-1turn',
-        delay: 0
-    },
-    delay: anime.stagger(50),
-    easing: 'easeInOutCirc',
-    loop: 1,
-    loopDelay: 1000
-});
-anime({
-    targets: '.title2',
-    translateX: [0, 50, 100, 60],
-    translateY: [50, 50],
+    targets: '.title',
+    translateX: [100,0],
     rotate: '0turn',
-    scale: [0.5, 1, 2, 1.2, 1],
+    scale: [1],
     opacity: [0, 1],
     duration: 1000,
     delay: 0,
@@ -59,8 +58,24 @@ anime({
 
 });
 anime({
-    targets: '.title3',
-    translateX: [-0, -50, -100, -55],
+    targets: '.letter',
+    opacity: [0,0,1],
+    keyframes: [
+        { translateX: '-100%', easing: 'easeOutExpo', duration:60 },
+        { translateX: 10, easing: 'easeOutBounce', duration: 800, delay: 0 }
+    ],
+    rotate: {
+        value: '0turn',
+        delay: 0
+    },
+    delay: anime.stagger(50),
+    easing: 'easeInOutCirc',
+    loop: 0,
+    loopDelay: 0
+});
+anime({
+    targets: '.title2',
+    translateX: [0, 50, 100, 60],
     translateY: [50, 50],
     rotate: '0turn',
     scale: [0.5, 1, 2, 1.2, 1],
@@ -85,32 +100,19 @@ function showtheAboutMe() {
     let abtm = document.getElementById('ABOUTME')
     abtm.innerHTML = '';
     let text = document.createElement('div')
-    text.className = 'divabtm';
+    
 
-    text.innerHTML = `<h1 class="Aboutme" style="color:black;">ALEXANDER</h1>
-<p class ="des" style="color:black;">Hi, I'm Ibrahim, a passionate web developer with expertise in JavaScript (React), PHP, Laravel, MySQL, HTML, CSS, and Bootstrap. I specialize in building dynamic, responsive websites and web applications using modern technologies. Whether it's frontend magic with React or robust backend solutions with Laravel, I love turning ideas into reality. Let's connect!
+    text.innerHTML = `
+<p class ="des"">Hi, I'm Ibrahim, a passionate web developer with expertise in JavaScript (React), PHP, Laravel, MySQL, HTML, CSS, and Bootstrap. I specialize in building dynamic, responsive websites and web applications using modern technologies. Whether it's frontend magic with React or robust backend solutions with Laravel, I love turning ideas into reality. Let's connect!
 </p>`;
     abtm.appendChild(text)
 
 
-    anime({
-        targets: '.Aboutme',
-        translateX: [50],
-        translateY: [1000, -100],
-        rotate: '0turn',
-        scale: [1, 2, 1],
-        opacity: [0, 1],
-        duration: 2000,
-        delay: 0,
-        endDelay: 300,
-        loop: 0,
-        direction: 'alternate',
-        easing: 'easeInOutExpo',
-    });
+
     anime({
         targets: '.des',
-        translateX: [50],
-        translateY: [-100, -100],
+        
+        
         rotate: '0turn',
         scale: [1, 1, 1],
         opacity: [0, 1],
@@ -125,50 +127,7 @@ function showtheAboutMe() {
 }
 
 
-document.getElementById('proj').addEventListener('click', showthePROJECTS);
 
-function showthePROJECTS() {
-    let prj = document.getElementById('PROJ')
-    let temps = document.getElementById('temp')
-    temps.style.background = 'none';
-    prj.innerHTML = '';
-    let text = document.createElement('div')
-    text.className = "prjclass"
-    text.innerHTML = `<h1 class="prj" style="color:black;">some projects</h1>
-     <div class="prj1" style="color:black;"><p id="prg">Working on an e commerce web site right now.</p><a href=" "target="_blank">Coming soon😁</a>`
-    prj.appendChild(text)
-    anime({
-        targets: '.prj',
-        translateX: [-50],
-        translateY: [1000, 50],
-        rotate: '0turn',
-        scale: [1, 2, 1],
-        opacity: [0, 1],
-        duration: 2000,
-        delay: 0,
-        endDelay: 300,
-        loop: 0,
-        direction: 'alternate',
-        easing: 'easeInOutExpo',
-
-
-
-    });
-    anime({
-        targets: '.prj1',
-        translateX: [0],
-        translateY: [0, -100],
-        rotate: '0turn',
-        scale: [1, 2, 1],
-        opacity: [0, 1],
-        duration: 2000,
-        delay: 0,
-        endDelay: 300,
-        loop: 0,
-        direction: 'alternate',
-        easing: 'easeInOutExpo',
-    });
-}
 
 
 const showtheSCROLLDOWN = () => {
@@ -186,11 +145,11 @@ const showtheSCROLLDOWN = () => {
     <div class="scroll-section padded">
       <div class="large row">
       <div class="lng" id="JS">
-        <img class="l" id="js" style="position:relative; left:30vw !important;" src="./alexanderIMAGES/javascript-logo-svgrepo-com.svg" width=90;>
+        <img class="l" id="js"  src="./alexanderIMAGES/javascript-logo-svgrepo-com.svg" width=90;>
         <div class="Lang">javascript</div>
         </div>
         <div class="lng" id="PHP">
-        <img class="l" id="php"style="position:relative; left:28.6vw !important;" src="./alexanderIMAGES/php-svgrepo-com.svg" width=100>
+        <img class="l" id="php"  src="./alexanderIMAGES/php-svgrepo-com.svg" width=100>
         <div class="Lang">PHP</div>
         </div>
         <div class="lng" id="MSQL">
@@ -202,7 +161,7 @@ const showtheSCROLLDOWN = () => {
         <div class="Lang">HTML</div>
         </div>
         <div class="lng" id="CSS">
-        <img class="l" style="position:relative; left:28.6vw !important;" id="css" src="./alexanderIMAGES/css-3-svgrepo-com.svg" width=100>
+        <img class="l"   id="css" src="./alexanderIMAGES/css-3-svgrepo-com.svg" width=100>
         <div class="Lang">CSS</div>
         </div>
 
@@ -302,7 +261,7 @@ function animateScrollDown() {
     let duration = 2000;
     let step = duration / 100;
     let interval = setInterval(() => {
-        if (start >= 100) {
+        if (start >= 100000) {
             clearInterval(interval);
         } else {
             $timer.textContent = start++;
@@ -325,9 +284,9 @@ observer.observe(document.querySelector('.observer-target'))
 
 
 const audio = document.getElementById('audio');
-audio.volume = 0
-audio.pause();
-
+audio.volume = 0.5
+audio.play();
+loop:true;
 Draggable.create("#controller", {
   type: "x",
   bounds: { minX: -250, maxX: 250 },

@@ -1,4 +1,4 @@
-   html {
+  /* html {
        background-color: rgb(255, 255, 255);
        color: rgb(0, 0, 0);
        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -398,12 +398,7 @@
        font-size: 200%;
    }
 
-   .bi-volume-up-fill {
-       position: relative;
-       left: 101%;
-       top: -4.5vh;
-       font-size: 200%;
-   }
+
 
    .ibraCONTACT {
        display: inline-block;
@@ -460,3 +455,314 @@
        cursor: pointer;
        
    }
+
+   */
+  * {
+      box-sizing: border-box;
+       
+  }
+
+
+  html {
+      display: block;
+      background-color: #000000;
+      font-family: sans-serif;
+      color: #fff;
+      height: 200vh;
+     border: 0.1px #007914 solid;
+     margin: 0;
+  }
+
+
+  body{
+
+  }
+
+  .box{
+ background-color: #007914;
+ position: relative;
+ top:5vh;
+ height: 15vh;
+ left: -0.3%;
+ border-radius: 0% 0% 100px ;
+ display: inline-flex;
+  }
+
+  .simon{
+border-radius: 50%;
+border: #007914 4px solid;
+ position: relative;
+
+
+
+  }
+  .title{
+    position: relative;
+    left: 6%;
+    top: 3vh;
+
+  }
+.just{
+    position: relative;
+    top: 0vh;
+    left: 0%;
+    font-size: 20px;
+    color: #bfe000;
+}
+  .letter{
+
+  }
+
+  .title2{
+color: #fff;
+background:none;
+border: none;
+font-size: 28px;
+transition: 0ms;
+  }
+.title2:hover{
+color: #bfe000;
+}
+  #aboutme{
+
+  }
+
+  .rightside{
+
+  }
+
+  .ABOUTME{
+
+  }
+
+
+
+  .des{
+    display: flex;
+width: 30%;
+font-size: 24px;
+position: absolute;
+top: 30vh;
+padding: 0% 2%;
+  }
+
+
+  .soundboard{
+     border: 3px #007914 solid;
+     display: inline-flex;
+     position: relative;
+     top: 20vh;
+     justify-content: center;
+    padding: 0%;
+    width: 20%;
+    left: 40%;
+    border-radius: 50px
+  }
+
+   .bi-volume-up-fill {
+    display: flex;
+       position: relative;
+       left: 50%;
+       align-items: center;
+       font-size: 200%;
+   }
+   .bi-volume-mute-fill {
+    display: flex;
+       position: relative;
+       left: -50%;
+        align-items: center;       
+       font-size: 200%;
+   }
+  #controller{
+     display: flex;
+    background-color: #bfe000;
+    width: 50px;
+    height: 50px;
+   
+    
+  }
+  @media (max-width:360px) {
+    .soundboard{
+        width: 100px;
+        height: 10px;
+    }
+    .square{
+       
+    }
+      #controller{
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      top: -5px;
+      }
+  }
+
+  .square{
+   display: flex;
+   margin:  -2%;
+    background-color: #bfe000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .scroll{
+
+  }
+
+  #scrolldown{
+       
+    
+     position: relative;
+     top: 100vh;
+  }
+.large.row{
+
+}
+.lng{
+display: inline-flex;
+justify-content: center;
+align-items: baseline;
+position: relative;
+left: 33%
+;
+}
+
+#JS,#PHP,#MSQL,#HTML,#CSS{
+
+}
+
+.l{
+position: relative;
+left: 50%;
+
+
+}
+
+#js, #php,#mysql,#html,#css{
+
+}
+.rct{
+display: inline-flex;
+justify-content: center;
+align-items: baseline;
+position: relative;
+left: 36%
+;
+}
+#LRVL{
+position: relative;
+left: 31%;
+
+}
+#laravel{
+    top:2vh;
+}
+#RCT{
+  position: relative;
+left: 34%;  
+}
+
+#BOOT{
+     position: relative;
+left: 30%;  
+}
+.Lang{
+    position: relative;
+    top: 1.2vh;
+}
+
+.frm{
+position: relative;
+left: 50%;
+}
+
+#react,#laravel,#bootstrap{
+
+}
+
+.frams{
+    position: relative;
+    top: 1.2vh;
+}
+
+#prrr{
+    display: flex;
+    margin: 2%;
+    height: 50px;
+    position: absolute;
+    top: -7vh;
+    left: 40%;
+    width: 200%;
+}
+  .FORM{
+ display: inline-flex;
+position: absolute;
+top: 63vh;
+ width: 30%;
+ height: 60vh;
+  }
+
+  .form-container{
+    display: flex;
+    justify-content: center;
+    
+
+width: 100%;
+  }
+
+  .form-group{
+display: grid;
+ font-size: 24px;
+
+width: 500px;
+height: 10vh;
+  }
+label{
+    font-size: 24px;
+}
+input{
+     font-size: 24px;
+     
+}
+  textarea{
+    resize: none;
+ font-size: 20px;
+  }
+  #submit{
+    background-color: #007914;
+    color: #fff;
+    padding: 3%;
+    border: none;
+    margin-top: 4%;
+     font-size: 24px;
+     
+  }
+
+  .footer{
+    width: 100%;
+    position: fixed;
+    bottom:0vh;
+    display: inline-flex;
+    background-color: #007914;
+    margin-left: -10px;
+  }
+
+  a{
+    display: inline-flex;
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+li{
+    list-style: none;
+    display: inline-flex;
+    font-size: 24px;
+    padding: 2%;
+}
+#made{
+    font-size: 24px;
+    display: inline-flex;
+    position: absolute;
+    left: 85%;
+}
