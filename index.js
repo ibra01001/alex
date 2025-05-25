@@ -2,11 +2,11 @@
 anime({
     targets: '.box',
     translateX: [0],
-    width:[250,700],
-   
+    
+
     rotate: '0turn',
     scale: [1],
-    opacity: [1],
+    opacity: [1,1],
     duration: 2000,
     delay: 0,
     endDelay: 300,
@@ -17,7 +17,7 @@ anime({
 });
 anime({
     targets: '.just',
-    translateX: [100,-5],
+    translateX: [100, -5],
     rotate: '0turn',
     scale: [1],
     opacity: [0, 1],
@@ -30,11 +30,11 @@ anime({
 
 });
 anime({
-    targets: '.simon',
-    translateX: [0,0],
+    targets: '. rounded-circle',
+    translateX: [0, 0],
     rotate: '1turn',
     scale: [1.2],
-    opacity: [0, 1],
+    opacity: [0,0,1],
     duration: 3000,
     delay: 0,
     endDelay: 300,
@@ -45,7 +45,7 @@ anime({
 });
 anime({
     targets: '.title',
-    translateX: [100,0],
+    translateX: [100, 0],
     rotate: '0turn',
     scale: [1],
     opacity: [0, 1],
@@ -59,9 +59,9 @@ anime({
 });
 anime({
     targets: '.letter',
-    opacity: [0,0,1],
+    opacity: [0, 0, 1],
     keyframes: [
-        { translateX: '-100%', easing: 'easeOutExpo', duration:60 },
+        { translateX: '-100%', easing: 'easeOutExpo', duration: 60 },
         { translateX: 10, easing: 'easeOutBounce', duration: 800, delay: 0 }
     ],
     rotate: {
@@ -97,104 +97,116 @@ anime({
 document.getElementById('aboutme').addEventListener('click', showtheAboutMe);
 
 function showtheAboutMe() {
-    let abtm = document.getElementById('ABOUTME')
-    abtm.innerHTML = '';
-    let text = document.createElement('div')
-    
+    const abtm = document.getElementById('ABOUTME');
+    abtm.classList.remove('d-none');
+    abtm.innerHTML = ''; // Clear before adding
+
+    const text = document.createElement('div');
+    text.classList.add('about-box');
 
     text.innerHTML = `
-<p class ="des"">Hi, I'm Ibrahim, a passionate web developer with expertise in JavaScript (React), PHP, Laravel, MySQL, HTML, CSS, and Bootstrap. I specialize in building dynamic, responsive websites and web applications using modern technologies. Whether it's frontend magic with React or robust backend solutions with Laravel, I love turning ideas into reality. Let's connect!
-</p>`;
-    abtm.appendChild(text)
+        <button class="close-btn" onclick="closeAboutMe()">&times;</button>
+        <p class="des">Hi, I'm Ibrahim — a passionate aspiring web developer. I've learned HTML, CSS, PHP, JavaScript, and Bootstrap, and I'm currently learning MySQL. I'm also planning to dive deeper into modern frameworks like React and Laravel. I love building dynamic, responsive websites and enjoy turning ideas into interactive web experiences. Let’s connect!</p>
+    `;
 
-
+    abtm.appendChild(text);
 
     anime({
         targets: '.des',
-        
-        
-        rotate: '0turn',
-        scale: [1, 1, 1],
+        scale: [0.9, 1],
         opacity: [0, 1],
-        duration: 2000,
-        delay: 0,
-        endDelay: 300,
-        loop: 0,
-        direction: 'alternate',
-        easing: 'easeInOutExpo',
+        duration: 1500,
+        easing: 'easeOutExpo'
     });
+}
 
+function closeAboutMe() {
+    const abtm = document.getElementById('ABOUTME');
+    anime({
+        targets: '.about-box',
+        opacity: [1, 0],
+        duration: 800,
+        easing: 'easeInOutExpo',
+        complete: () => {
+            abtm.classList.add('d-none');
+            abtm.innerHTML = '';
+        }
+    });
 }
 
 
 
 
 
-const showtheSCROLLDOWN = () => {
+/*const showtheSCROLLDOWN = () => {
     let scrl = document.getElementById('scrolldown')
     scrl.innerHTML = '';
     let text = document.createElement('div')
-    text.className = "scrolldown"
-    text.innerHTML = `<div class="scroll-container scroll-y">
-  <div class="scroll-content grid square-grid">
-    <div class="scroll-section padded">
-      <div class="large centered row">
-        <div class="label"><h1>Skills</h1></div>
+   
+    text.innerHTML = ` <section class="mb-5">
+    <div class="text-center mb-4">
+      <h2 class="display-5 fw-semibold">Languages</h2>
+    </div>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4 justify-content-center">
+      <!-- JavaScript -->
+      <div class="col text-center">
+        <img src="./alexanderIMAGES/javascript-logo-svgrepo-com.svg" alt="JavaScript" class="skill-icon img-fluid mb-2">
+        <p class="mb-0 skill-title">JavaScript</p>
+      </div>
+      
+      <!-- PHP -->
+      <div class="col text-center">
+        <img src="./alexanderIMAGES/php-svgrepo-com.svg" alt="PHP" class="skill-icon img-fluid mb-2">
+        <p class="mb-0 skill-title">PHP</p>
+      </div>
+      
+      <!-- MySQL -->
+      <div class="col text-center">
+        <img src="./alexanderIMAGES/mysql-logo-svgrepo-com.svg" alt="MySQL" class="skill-icon img-fluid mb-2">
+        <p class="mb-0 skill-title">MySQL</p>
+      </div>
+      
+      <!-- HTML -->
+      <div class="col text-center">
+        <img src="./alexanderIMAGES/html-svgrepo-com.svg" alt="HTML" class="skill-icon img-fluid mb-2">
+        <p class="mb-0 skill-title">HTML</p>
+      </div>
+      
+      <!-- CSS -->
+      <div class="col text-center">
+        <img src="./alexanderIMAGES/css-3-svgrepo-com.svg" alt="CSS" class="skill-icon img-fluid mb-2">
+        <p class="mb-0 skill-title">CSS</p>
       </div>
     </div>
-    <div class="scroll-section padded">
-      <div class="large row">
-      <div class="lng" id="JS">
-        <img class="l" id="js"  src="./alexanderIMAGES/javascript-logo-svgrepo-com.svg" width=90;>
-        <div class="Lang">javascript</div>
-        </div>
-        <div class="lng" id="PHP">
-        <img class="l" id="php"  src="./alexanderIMAGES/php-svgrepo-com.svg" width=100>
-        <div class="Lang">PHP</div>
-        </div>
-        <div class="lng" id="MSQL">
-        <img class="l" id="msql" src="./alexanderIMAGES/mysql-logo-svgrepo-com.svg" width=100>
-        <div class="Lang">MySQL</div>
-        </div>
-        <div class="lng" id="HTML">
-        <img class="l" id="html"  src="./alexanderIMAGES/html-svgrepo-com.svg" width=100>
-        <div class="Lang">HTML</div>
-        </div>
-        <div class="lng" id="CSS">
-        <img class="l"   id="css" src="./alexanderIMAGES/css-3-svgrepo-com.svg" width=100>
-        <div class="Lang">CSS</div>
-        </div>
+  </section>
 
+  <!-- Frameworks Section -->
+  <section class="mb-5">
+    <div class="text-center mb-4">
+      <h2 class="display-5 fw-semibold">Frameworks</h2>
+    </div>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4 justify-content-center">
+      <!-- React -->
+      <div class="col text-center">
+        <img src="./alexanderIMAGES/react-svgrepo-com.svg" alt="React" class="skill-icon img-fluid mb-2">
+        <p class="mb-0 skill-title">React</p>
+      </div>
+      
+      <!-- Bootstrap -->
+      <div class="col text-center">
+        <img src="./alexanderIMAGES/bootstrap-svgrepo-com.svg" alt="Bootstrap" class="skill-icon img-fluid mb-2">
+        <p class="mb-0 skill-title">Bootstrap</p>
+      </div>
+      
+      <!-- Laravel -->
+      <div class="col text-center">
+        <img src="./alexanderIMAGES/laravel-svgrepo-com.svg" alt="Laravel" class="skill-icon img-fluid mb-2">
+        <p class="mb-0 skill-title">Laravel</p>
       </div>
     </div>
-    <div class="scroll-section padded">
-      <div class="large centered row">
-        <pre class="large log row">
-          <span id='indice' class="label">Timer</span>
-          <span class="timer value lcd">0</span>
-        </pre>
-      </div>
-    </div>
-    <div class="scroll-section padded">
-      <div class="large row">
-        <div class="rct" id="RCT">
-        <img id="react" class="frm" src="./alexanderIMAGES/react-svgrepo-com.svg" width=120>
-        <div class="frams">react</div>
-        </div>
-        <div class="rct" id="LRVL">
-        <img id="laravel" class="frm" src="./alexanderIMAGES/laravel-svgrepo-com.svg" width=190>
-        <div class="frams">Laravel</div>
-        </div>
-        <div class="rct" id="BOOT">
-        <img id="bootstrap" class="frm" src="./alexanderIMAGES/bootstrap-svgrepo-com.svg" width=100>
-        <div class="frams">Bootstrap</div>
-        </div>
+  </section>
 
 
-      </div>
-    </div>
-  </div>
-</div>
 `
     scrl.appendChild(text)
 
@@ -202,72 +214,32 @@ const showtheSCROLLDOWN = () => {
         animateScrollDown();
     });
 };
+*/
 
 
 
+//function animateScrollDown() {
 
-function animateScrollDown() {
+
+
+  window.addEventListener('DOMContentLoaded', () => {
     anime({
-        targets: '.Lang',
-        translateX: [-1000,0],
-        translateY: [0,0,100],
-        rotate: '0turn',
-        duration: 2000,
-        direction: 'normal',
-        loop: 1,
-        opacity: [0, 1],
-        easing: 'easeInOutExpo'
+      targets: '.skill-icon',
+      rotate: '1turn',
+      scale: [0.5, 1],
+      opacity: [0, 1],
+      duration: 1500,
+      delay: anime.stagger(100),
+      easing: 'easeInOutExpo'
     });
-        anime({
-        targets: '.l',
-        translateX: [-1000,0],
-        translateY: [0,0,100],
-        rotate: '0turn',
-        duration: 2000,
-        direction: 'normal',
-        loop: 1,
-        opacity: [0, 1],
-        easing: 'easeInOutExpo'
-    });
-    
-
-    anime({
-        targets: '.frams',
-        translateX: [100, 0],
-        duration: 1500,
-        scale: [1, 1.2, 1],
-        delay: anime.stagger(200),
-        direction: 'alternate',
-        loop: 1,
-        opacity: [0, 1, 0],
-        easing: 'easeInOutExpo'
-    });
-    anime({
-        targets: '.frm',
-        translateX: [100, 0],
-        scale: [1, 1.2, 1],
-        duration: 1500,
-        delay: anime.stagger(200),
-        direction: 'alternate',
-        loop: 1,
-        opacity: [0, 1, 0],
-        easing: 'easeInOutExpo'
-    });
+  });
 
 
 
-    let $timer = document.querySelector('.timer');
-    let start = 0;
-    let duration = 2000;
-    let step = duration / 100;
-    let interval = setInterval(() => {
-        if (start >= 100000) {
-            clearInterval(interval);
-        } else {
-            $timer.textContent = start++;
-        }
-    }, step);
-}
+
+
+
+
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -283,23 +255,7 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(document.querySelector('.observer-target'))
 
 
-const audio = document.getElementById('audio');
-audio.volume = 0.5
-audio.play();
-loop:true;
-Draggable.create("#controller", {
-  type: "x",
-  bounds: { minX: -250, maxX: 250 },
-  
-    onDrag: function() {
-        audio.play();
-        const x = this.x;
-        
-        const volume = (x + 250) / 500;
-        audio.volume = volume;
-    }
 
-});
 
 /*
 const noteinfo =()=>{
@@ -328,7 +284,14 @@ noteinfo()
 
 }
 
-
+    <div class="scroll-section padded">
+      <div class="large centered row">
+        <pre class="large log row">
+          <span id='indice' class="label">Timer</span>
+          <span class="timer value lcd">0</span>
+        </pre>
+      </div>
+    </div>
 
 
 const noteOBS= new IntersectionObserver((entries)=>{

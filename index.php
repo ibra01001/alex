@@ -142,48 +142,136 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <hr>
      
        
-        <div class="FORM">
-             <h1 id="prrr">Contact me</h1>
-            <?= $note; ?>
-            <div class="form-container">
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="FORM bg-white p-4 p-md-5">
+                <h1 id="prrr" class="text-center mb-4 fw-bold display-5">Contact me</h1>
+                
+                <?php if(isset($note)): ?>
+                <div class="alert alert-info text-center mb-4">
+                    <?= $note ?>
+                </div>
+                <?php endif; ?>
 
-                <form method="post">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="name" required
-                       
-                            
-                            value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>">
-                        <span></span>
-                    </div>
+                <div class="form-container">
+                    <form method="post" class="needs-validation" novalidate>
+                        <!-- Name Field -->
+                        <div class="form-group mb-4">
+                            <label for="name" class="form-label fw-semibold">Full Name</label>
+                            <input type="text" 
+                                   id="name" 
+                                   name="name" 
+                                   class="form-control rounded-0 border-2 border-dark" 
+                                   placeholder="Your name" 
+                                   required
+                                   value="<?= isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>">
+                            <div class="invalid-feedback">Please enter your name</div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="email" required
-                        
-                            value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
-                        <span></span>
-                    </div>
+                        <!-- Email Field -->
+                        <div class="form-group mb-4">
+                            <label for="email" class="form-label fw-semibold">Email</label>
+                            <input type="email" 
+                                   id="email" 
+                                   name="email" 
+                                   class="form-control rounded-0 border-2 border-dark" 
+                                   placeholder="your.email@example.com" 
+                                   required
+                                   value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
+                            <div class="invalid-feedback">Please enter a valid email</div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="phone number"
-                        
-                            value="<?php echo isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : ''; ?>">
-                        <span><?= $feedback ?? "" ?></span>
-                    </div>
+                        <!-- Phone Field -->
+                        <div class="form-group mb-4">
+                            <label for="phone" class="form-label fw-semibold">Phone Number</label>
+                            <input type="tel" 
+                                   id="phone" 
+                                   name="phone" 
+                                   class="form-control rounded-0 border-2 border-dark" 
+                                   placeholder="+1 (123) 456-7890"
+                                   value="<?= isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '' ?>">
+                            <?php if(isset($feedback)): ?>
+                            <div class="text-muted small mt-1"><?= $feedback ?></div>
+                            <?php endif; ?>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5"
-                            required ><?php echo isset($_POST['message']) ? htmlspecialchars($_POST['message']) : ''; ?></textarea>
-                    </div>
+                        <!-- Message Field -->
+                        <div class="form-group mb-4">
+                            <label for="message" class="form-label fw-semibold">Message</label>
+                            <textarea id="message" 
+                                      name="message" 
+                                      class="form-control rounded-0 border-2 border-dark" 
+                                      rows="5"
+                                      required><?= isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '' ?></textarea>
+                            <div class="invalid-feedback">Please enter your message</div>
+                        </div>
 
-                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?? ''; ?>">
-                    <button id="submit" type="submit" name="submit"  >Send Message</button>
-                </form>
+                        <!-- CSRF Token -->
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
+
+                        <!-- Submit Button -->
+                        <button id="submit" 
+                                type="submit" 
+                                name="submit" 
+                                class="btn btn-dark rounded-0 w-100 py-3 fw-bold text-uppercase">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+
+<style>
+    .FORM {
+        border: 2px solid #000;
+        box-shadow: 8px 8px 0 #000;
+    }
+    
+    .form-control {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    
+    .form-control:focus {
+        border-color: #000 !important;
+    }
+    
+    #submit {
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+    }
+    
+    #submit:hover {
+        background-color: #000;
+        transform: translateY(-2px);
+    }
+    
+    .invalid-feedback {
+        font-weight: 500;
+    }
+</style>
+
+<script>
+// Bootstrap form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
         </section>
 
         <footer class="footer">
