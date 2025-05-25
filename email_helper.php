@@ -12,9 +12,9 @@ function send_email(
     string $recipient_adress,
     string $subject,
     string $body,
-    string $your_email = "bookspizza31@gmail.com",
-    string $your_password = "kekr gvgh ekfk kjkw",
-    string $from_adress = "bookspizza31@gmail.com",
+    string $your_email = "",
+    string $your_password = "",
+    string $from_adress = "",
     string $from_name = "Your web"
 ) {
     //Create an instance; passing `true` enables exceptions
