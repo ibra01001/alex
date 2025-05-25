@@ -38,15 +38,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // $mail = new PHPMailer(true);
         // try {
         //   $mail->isSMTP();
-        //   $mail->Host = "smtp.gmail.com";
+        //   $mail->Host =";
         //   $mail->SMTPAuth = true;
         
-        //   $mail->Password = "kekr gvgh ekfk kjkw";
+        //   $mail->Password = "";
         //   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        //   $mail->Port = 587;
+        //   $mail->Port = ;
 
-        //   $mail->setFrom($useremail, $sender);
-        //   $mail->addAddress("mohamedremili500@gmail.com");
+        
 
 
 
