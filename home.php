@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //   $mail->isSMTP();
         //   $mail->Host = "smtp.gmail.com";
         //   $mail->SMTPAuth = true;
-        //   $mail->Username = "mohamedremili500@gmail.com";
+        
         //   $mail->Password = "kekr gvgh ekfk kjkw";
         //   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         //   $mail->Port = 587;
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         for ($i = 0; $i < 1; $i++) {
             send_email(
-                recipient_adress: "mohamedremili5000@gmail.com",
+                recipient_adress: "",
                 subject: "Test",
                 body: $body
             );
