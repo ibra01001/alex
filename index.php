@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //   $mail->Port = 587;
 
         //   $mail->setFrom($useremail, $sender);
-        //   $mail->addAddress("mohamedremili500@gmail.com");
+        //   $mail->addAddress("");
 
 
 
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         for ($i = 0; $i < 1; $i++) {
             send_email(
-                recipient_adress: "mohamedremili5000@gmail.com",
+                recipient_adress: "",
                 subject: "Test",
                 body: $body
             );
